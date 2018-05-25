@@ -9,17 +9,17 @@ import paramiko as pmk
 
 #path='/cygdrive/d/website/'
 dict ={'AdminSite':'admin',
-        'mb':'mb.tga.plu.cn',
-        'livemb.plu.cn':'livemb.plu.cn',
-        'comments.plu.cn':'comments.plu.cn',
-        'PLU.Home.SearchApi':'searchapi.plu.cn',
-        'livestream':'LiveStream',
-        'websetting':'setting.longzhu.com',
-        'webapiroom':'roomapicdn.plu.cn',
-        'webapiuser':'userapi.plu.cn',
-        'webapiuser-info':'userapi.plu.cn-7888',
-        'webapiuser-ticket':'userapi.plu.cn-ticket',
-        'webapirank':'rankapi.longzhu.com',
+        'mb':'',
+        'livemb.plu.cn':'',
+        'comments.plu.cn':'',
+        'PLU.Home.SearchApi':'s',
+        'livestream':'',
+        'websetting':'',
+        'webapiroom':'',
+        'webapiuser':'',
+        'webapiuser-info':'',
+        'webapiuser-ticket':'',
+        'webapirank':'',
         '':''
         }
 
@@ -32,7 +32,7 @@ def command(serverId,webSite,path='/cygdrive/d/website/'):
   print "%s rsync %s successful!!!" % (serverId,webSite)
 
 #connection hosts and restart iis
-def con_ssh(host,web,status, user='Administrator', port='58422'):  
+def con_ssh(host,web,status, user='Administrator', port=''):  
     key=pmk.RSAKey.from_private_key_file(filename='C:\cygwin64\home\Aadministrator')
     ssh_client = pmk.SSHClient()  
     ssh_client.load_system_host_keys()  
