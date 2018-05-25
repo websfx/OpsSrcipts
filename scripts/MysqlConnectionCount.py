@@ -6,7 +6,7 @@ import paramiko as pmk
 
 """connect source_mysql get login info"""
 def con_mysql_info():
-        db = MySQLdb.connect(host="10.53.3.24",user="pluops",passwd="db@plu",db="LongzhuCC",port=3306,charset="utf8")
+        db = MySQLdb.connect(host="",user="",passwd="",db="",port=3306,charset="utf8")
         cursor = db.cursor()
         data = cursor.execute("SELECT IP,Port,userid,Passwd FROM all_config;")
         info = cursor.fetchmany(data)
@@ -14,7 +14,7 @@ def con_mysql_info():
 
 """con influx and insert data for grafana"""
 def con_influx_info(Host,Ip,Port,Counts):
-        client = InfluxDBClient('10.53.6.15', 8086, '', '', 'mysql_clientlist')
+        client = InfluxDBClient('', 8086, '', '', 'mysql_clientlist')
         json_body = [{"measurement": "mysql_clientlist","tags": {"server": str(Host), "host": str(Ip), "port": str(Port)}, "fields": {"server": str(Host), "host": str(Ip), "port": str(Port), "count": int(Counts)}}]
         client.write_points(json_body,retention_policy="autogen")
 
