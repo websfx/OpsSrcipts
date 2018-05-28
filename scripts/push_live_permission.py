@@ -40,7 +40,7 @@ def get_use_rate():
         List = data[0]
         return List['streamid']
 
-db = MySQLdb.connect(host="10.53.4.14",user="lz_read",passwd="909e8d463991b442e2b3816e712ad8e5",db="Report",port=3306,charset="utf8")
+db = MySQLdb.connect(host="10.53.4.14",user="",passwd="",db="Report",port=3306,charset="utf8")
 cursor = db.cursor()
 data = cursor.execute("select * from (select StreamId,count(*) nub   from Report.StreamAuthLog where OpType=2 and Result=0 and CreateTime > date_sub(now(), interval 10 minute)  GROUP BY StreamId) b where b.nub >=0   order by b.nub desc;")
 info = cursor.fetchmany(data)
